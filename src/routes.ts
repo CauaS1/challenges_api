@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { createChallenges, getChallenge, getChallenges, updateChallenge } from './controller/ChallengesController';
-import { createUser, getUser } from './controller/RegisterController';
+import { register, getUser, login } from './controller/UsersController';
 
 const routes = Router();
 
@@ -15,7 +15,9 @@ routes.patch('/challenge/:id', updateChallenge);
 
 // User Creation
 routes.get('/users', getUser);
-routes.post('/user', createUser);
+routes.post('/user', register);
+
+routes.post('/login', login);
 
 export default routes;
 
